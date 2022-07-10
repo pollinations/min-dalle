@@ -9,7 +9,7 @@ torch.backends.cudnn.deterministic = False
 
 class ReplicatePredictor(BasePredictor):
     def setup(self):
-        self.model = MinDalle(is_mega=True, is_reusable=True, dtype=torch.float16)
+        self.model = MinDalle(dtype=torch.float16, is_mega=True, is_reusable=True)
 
     def predict(
         self,
@@ -25,7 +25,7 @@ class ReplicatePredictor(BasePredictor):
             description='Size of the image grid.  4x4 takes about 15 seconds, 8x8 takes about 35 seconds',
             ge=1,
             le=8,
-            default=4
+            default=1
         ),
         log2_supercondition_factor: int = Input(
             description='Higher values result in better agreement with the text but a narrower variety of generated images',
