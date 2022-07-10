@@ -9,7 +9,7 @@ torch.backends.cudnn.deterministic = False
 
 class ReplicatePredictor(BasePredictor):
     def setup(self):
-        self.model = MinDalle(dtype=torch.float16, is_mega=True, is_reusable=True)
+        self.model = MinDalle(dtype=torch.float16, is_mega=False, is_reusable=False)
 
     def predict(
         self,
@@ -34,6 +34,7 @@ class ReplicatePredictor(BasePredictor):
             default=4
         ),
     ) -> Iterator[Path]:
+        print("running prediction")
         try: 
             seed = -1
             log2_mid_count = 3 if intermediate_outputs else 0
