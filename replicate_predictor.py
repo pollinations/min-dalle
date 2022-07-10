@@ -9,7 +9,7 @@ torch.backends.cudnn.deterministic = False
 
 class ReplicatePredictor(BasePredictor):
     def setup(self):
-        self.model = MinDalle(dtype=torch.float16, is_mega=False, is_reusable=False)
+        self.model = MinDalle(dtype=torch.float16, is_mega=False, is_reusable=True)
 
     def predict(
         self,
