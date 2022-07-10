@@ -9,17 +9,14 @@ setuptools.setup(
     author='Brett Kuprel',
     author_email='brkuprel@gmail.com',
     url='https://github.com/kuprel/min-dalle',
-    packages=[
-        'min_dalle', 
-        'min_dalle.models'
-    ],
     license='MIT',
     install_requires=[
         'torch>=1.11',
         'typing_extensions>=4.1',
         'numpy>=1.21',
         'pillow>=7.1',
-        'requests>=2.23'
+        'requests>=2.23',
+        'min-dalle'
     ],
     keywords = [
         'artificial intelligence',
