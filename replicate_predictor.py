@@ -13,7 +13,7 @@ class ReplicatePredictor(BasePredictor):
 
     def predict(
         self,
-        text: str = Input(
+        Prompt: str = Input(
             description='For long prompts, only the first 64 tokens will be used to generate the image.',
             default='Dali painting of WALL·E'
         ),
@@ -35,6 +35,7 @@ class ReplicatePredictor(BasePredictor):
         ),
     ) -> Iterator[Path]:
         print("running prediction")
+        text = Prompt
         try: 
             seed = -1
             log2_mid_count = 3 if intermediate_outputs else 0
