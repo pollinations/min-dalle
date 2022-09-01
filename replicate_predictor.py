@@ -1,8 +1,10 @@
-from min_dalle import MinDalle
 import tempfile
-import torch, torch.backends.cudnn
 from typing import Iterator
-from cog import BasePredictor, Path, Input
+
+import torch
+import torch.backends.cudnn
+from cog import BasePredictor, Input, Path
+from min_dalle import MinDalle
 
 torch.backends.cudnn.deterministic = False
 
@@ -19,13 +21,13 @@ class ReplicatePredictor(BasePredictor):
         ),
         intermediate_outputs: bool = Input(
             description='Whether to show intermediate outputs while running.  This adds less than a second to the run time.',
-            default=True
+            default=False
         ),
         grid_size: int = Input(
             description='Size of the image grid.  4x4 takes about 15 seconds, 8x8 takes about 35 seconds',
             ge=1,
             le=8,
-            default=1
+            default=4
         ),
         log2_supercondition_factor: int = Input(
             description='Higher values result in better agreement with the text but a narrower variety of generated images',
