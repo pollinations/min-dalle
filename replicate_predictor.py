@@ -27,7 +27,7 @@ class ReplicatePredictor(BasePredictor):
             description='Size of the image grid.  4x4 takes about 15 seconds, 8x8 takes about 35 seconds',
             ge=1,
             le=8,
-            default=4
+            default=1
         ),
         log2_supercondition_factor: int = Input(
             description='Higher values result in better agreement with the text but a narrower variety of generated images',
